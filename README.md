@@ -13,5 +13,9 @@ This module currently contains:
   of the spring-core version which demonstrates the use of this abstract test implementation.      
 
 * Simple map-based in-memory UsersConnectionRepository/ConnectionRepository implementations for testing/development 
-  purposes, and assoicated tests.
-                                                                                                                          
+  purposes, and assocated tests.
+                                               
+
+An example of the use of AbstractUsersConnectionRepositoryTest outside of this project can be found in
+https://github.com/michaellavelle/spring-social-roo-connectionrepository , where a Roo-based implementation is tested
+using the same test suite.
