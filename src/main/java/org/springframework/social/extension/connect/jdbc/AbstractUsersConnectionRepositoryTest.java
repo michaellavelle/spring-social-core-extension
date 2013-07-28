@@ -379,7 +379,7 @@ public abstract class AbstractUsersConnectionRepositoryTest<U extends UsersConne
 	public void addConnection() {
 		Connection<TestFacebookApi> connection = connectionFactory
 				.createConnection(new AccessGrant("123456789", null,
-						"987654321", 3600));
+						"987654321", 3600l));
 		connectionRepository.addConnection(connection);
 		Connection<TestFacebookApi> restoredConnection = connectionRepository
 				.getPrimaryConnection(TestFacebookApi.class);
@@ -391,7 +391,7 @@ public abstract class AbstractUsersConnectionRepositoryTest<U extends UsersConne
 	public void addConnectionDuplicate() {
 		Connection<TestFacebookApi> connection = connectionFactory
 				.createConnection(new AccessGrant("123456789", null,
-						"987654321", 3600));
+						"987654321", 3600l));
 		connectionRepository.addConnection(connection);
 		connectionRepository.addConnection(connection);
 	}
@@ -626,11 +626,31 @@ public abstract class AbstractUsersConnectionRepositoryTest<U extends UsersConne
 					return null;
 				}
 
+				public AccessGrant exchangeCredentialsForAccess(
+						String username, String password,
+						MultiValueMap<String, String> additionalParameters) {
+					return null;
+				}
+
+				public AccessGrant refreshAccess(String refreshToken,
+						MultiValueMap<String, String> additionalParameters) {
+					return new AccessGrant("765432109", "read", "654321098",
+							3600L);
+				}
+
 				public AccessGrant refreshAccess(String refreshToken,
 						String scope,
 						MultiValueMap<String, String> additionalParameters) {
 					return new AccessGrant("765432109", "read", "654321098",
-							3600);
+							3600L);
+				}
+
+				public AccessGrant authenticateClient() {
+					return null;
+				}
+
+				public AccessGrant authenticateClient(String scope) {
+					return null;
 				}
 			};
 		}
