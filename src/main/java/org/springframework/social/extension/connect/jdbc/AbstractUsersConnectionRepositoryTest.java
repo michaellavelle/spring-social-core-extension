@@ -652,6 +652,18 @@ public abstract class AbstractUsersConnectionRepositoryTest<U extends UsersConne
 				public AccessGrant authenticateClient(String scope) {
 					return null;
 				}
+
+				@Override
+				public String buildAuthorizeUrl(OAuth2Parameters parameters) {
+					// TODO Auto-generated method stub
+					return null;
+				}
+
+				@Override
+				public String buildAuthenticateUrl(OAuth2Parameters parameters) {
+					// TODO Auto-generated method stub
+					return null;
+				}
 			};
 		}
 
